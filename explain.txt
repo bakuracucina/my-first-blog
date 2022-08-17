@@ -1,0 +1,2 @@
+conda activate djangoEnv
+conda deactivate 
