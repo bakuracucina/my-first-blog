@@ -1,9 +1,14 @@
+{% load static %}
 <html>
     <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
         <title>俺は誰か</blockquote></title>
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/"> </a>Who am I</a></a></h1>
 
         </div>
@@ -14,7 +19,7 @@
             <p>見ていっておくれ</p>
         </div>
 
-        <div>
+        <div class="post">
             <p>公開日: 8.19.2022, 15:14</p>
             <h2><a href="https://github.com/bakuracucina">github </a></h2>
             <p>ゴミカス</p>
@@ -32,12 +37,20 @@
             <p>安いから野菜カレーがおすすめ</p>
         </div>
 
-        {% for post in posts %}
-            <div>
-                <p>published: {{ post.published_date }}</p>
-                <h2><a href="">{{ post.title }}</a></h2>
-                <p>{{ post.text|linebreaksbr }}</p>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                        <div class="post">
+                            <div class="date">
+                                <p>published: {{ post.published_date }}</p>
+                            </div>
+                            <h2><a href="">{{ post.title }}</a></h2>
+                            <p>{{ post.text|linebreaksbr }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
+        </div>
     </body>
 </html>
